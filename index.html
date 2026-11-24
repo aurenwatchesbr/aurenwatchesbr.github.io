@@ -79,6 +79,7 @@ header{position:sticky;top:0;z-index:30;background:rgba(26,26,26,.82);-webkit-ba
 .pc .pr{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 .pc .pr strong{font-size:19px;color:#1d7f98;font-weight:600;white-space:nowrap}
 .pc .pr small{color:var(--mute);font-size:14px}
+.pc .inst{color:var(--ink);font-size:15px;margin-top:-4px}.pc .inst b{font-weight:600}
 .chip{align-self:flex-start;background:#111;color:var(--gold);font-size:12.5px;font-weight:700;padding:3px 8px;border-radius:3px}
 .sw{display:flex;gap:8px;margin-top:4px}
 .sw button{width:46px;height:46px;border:1px solid var(--line);border-radius:4px;background:#fff;padding:3px;cursor:pointer}
@@ -157,8 +158,8 @@ footer .copy{border-top:1px solid #2a2a2a;margin-top:32px;padding-top:18px;font-
 <body>
 
 <div class="ticker" aria-label="Avisos"><div class="track">
-  <span>Seja bem-vindo(a) à AUREN</span><span>Entrega em até 15 dias úteis para todo o Brasil</span><span>Pix ou até 12x no cartão</span><span>Relógios Poedagar originais</span>
-  <span aria-hidden="true">Seja bem-vindo(a) à AUREN</span><span aria-hidden="true">Entrega em até 15 dias úteis para todo o Brasil</span><span aria-hidden="true">Pix ou até 12x no cartão</span><span aria-hidden="true">Relógios Poedagar originais</span>
+  <span>Seja bem-vindo(a) à AUREN</span><span>Entrega em até 15 dias úteis para todo o Brasil</span><span>R$ 167,90 à vista ou 12x de R$ 17,27</span><span>Relógios Poedagar originais</span>
+  <span aria-hidden="true">Seja bem-vindo(a) à AUREN</span><span aria-hidden="true">Entrega em até 15 dias úteis para todo o Brasil</span><span aria-hidden="true">R$ 167,90 à vista ou 12x de R$ 17,27</span><span aria-hidden="true">Relógios Poedagar originais</span>
 </div></div>
 
 <header>
@@ -243,7 +244,7 @@ footer .copy{border-top:1px solid #2a2a2a;margin-top:32px;padding-top:18px;font-
 <section class="sec">
   <div class="wrap trust">
     <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg><b>Entrega em até 15 dias úteis</b><span>Envio rastreado para todo o Brasil</span></div>
-    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><b>Pagamento seguro</b><span>Pix ou até 12x no cartão</span></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><b>Pagamento seguro</b><span>R$ 167,90 à vista ou 12x de R$ 17,27</span></div>
     <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg><b>Atendimento no WhatsApp</b><span>Tire dúvidas antes e depois da compra</span></div>
     <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.3-5.7"/><path d="M4 4v4h4"/></svg><b>7 dias para devolver</b><span>Direito garantido em compras online</span></div>
   </div>
@@ -269,7 +270,7 @@ footer .copy{border-top:1px solid #2a2a2a;margin-top:32px;padding-top:18px;font-
     <div class="sh"><h2>Dúvidas frequentes</h2></div>
     <details><summary>Os relógios são originais?</summary><p>Sim. Todos são da marca Poedagar, originais de fábrica, com a marca no mostrador. A AUREN é a loja que seleciona, confere e envia cada peça.</p></details>
     <details><summary>Qual o prazo de entrega?</summary><p>Até 15 dias úteis após a confirmação do pagamento, para todo o Brasil. Você recebe o código de rastreio para acompanhar o envio.</p></details>
-    <details><summary>Como funciona o pagamento?</summary><p>Escolha a cor e clique em Comprar. Você vai para a nossa loja segura, onde informa o endereço de entrega e paga com Pix ou cartão em até 12x.</p></details>
+    <details><summary>Como funciona o pagamento?</summary><p>Escolha a cor e clique em Comprar. Você vai para a nossa loja segura, onde informa o endereço de entrega e paga à vista (R$ 167,90) ou no cartão em 12x de R$ 17,27.</p></details>
     <details><summary>Posso devolver?</summary><p>Sim. Você tem 7 dias após o recebimento para desistir da compra, e 90 dias de garantia contra defeitos de fabricação.</p></details>
     <details><summary>São à prova d'água?</summary><p>Resistem a respingos do dia a dia. Não use no banho, na piscina ou no mar.</p></details>
   </div>
@@ -308,7 +309,7 @@ function card(i){
   return `<article class="pc" data-i="${i}">
     <div class="ph">${P[i].badge?`<span class="badge gold">${P[i].badge}</span>`:""}<img src="${p.foto}" alt="Relógio Poedagar Octagon ${p.cor}"></div>
     <div class="bd"><h3>Relógio Poedagar Octagon — ${p.cor}</h3>
-      <div class="pr"><strong>R$ 167,90</strong><small>ou até 12x no cartão</small></div>
+      <div class="pr"><strong>R$ 167,90</strong><small>à vista</small></div><div class="inst">ou 12x de <b>R$ 17,27</b></div>
       <span class="chip">Entrega em até 15 dias úteis</span>
       <div class="sw">${P.map(q=>`<button data-c="${q.id}" aria-pressed="${q.id===p.id}" aria-label="${q.cor}" title="${q.cor}"><img src="${q.foto}" alt=""></button>`).join("")}</div>
       <div class="gap"></div>
