@@ -245,7 +245,7 @@ footer .copy{border-top:1px solid #2a2a2a;margin-top:32px;padding-top:18px;font-
     <div class="info">
       <span class="tagn">Novidade</span>
       <h2>Relógio Poedagar Classic 930</h2>
-      <div class="price"><strong id="nPrice">R$ 267,74</strong><small>à vista ou em até 12x no cartão</small></div>
+      <div class="price"><strong id="nPrice">R$ 304,68</strong><small>à vista ou em até 12x no cartão</small></div>
       <span class="lbl">Cor: <b id="nCor">Prata e branco</b></span>
       <div class="csw" id="nSw"></div>
       <ul class="specs"><li>Aço inoxidável</li><li>Máquina quartzo</li><li>Dia da semana e data</li><li>Ponteiros luminosos</li><li>Vidro hardlex</li><li>Resistente a respingos (3 ATM)</li></ul>
@@ -379,17 +379,18 @@ render();
 /* Classic 930: galeria e cores */
 {
 const CDN="https://ae-pic-a1.aliexpress-media.com/kf/", img=(id,sz)=>`${CDN}${id}.jpg_${sz}x${sz}q75.jpg`, fb=`onerror="this.onerror=null;this.src=this.src.replace(/_\\d+x\\d+q75\\.jpg$/,'')"`;
+// preco = preço normal na AliExpress + 25% de imposto estimado + R$ 120
 // link: cole aqui o link do carrinho da Nuvemshop de cada cor quando cadastrar o produto
 const CORES=[
- {cor:"Prata e branco",id:"S3ef531e12a4b4b848a10b911b6a1bae5V",preco:267.74,link:""},
- {cor:"Prata e verde",id:"Sd4cce521fd2042cb90d037e93bff8d64Z",preco:269.37,link:""},
- {cor:"Prata e azul",id:"S9509eedd58db4b068d55cca883fb934ej",preco:269.61,link:""},
- {cor:"Prata e preto",id:"S35260cd5ed8147bab68f4ca72242caedL",preco:268.64,link:""},
- {cor:"Dourado",id:"S4d4a90bd5fdc4e248891fbf7e7ef8d92D",preco:284.25,link:""},
- {cor:"Rosé e verde",id:"S803a12a19b3042d8b5cbd27aa464205ff",preco:276.56,link:""},
- {cor:"Rosé e azul",id:"S6a29efb2d784484ead9da1f6fca8a957T",preco:276.91,link:""},
- {cor:"Rosé e branco",id:"S52b8d41de25840eba126490b8d8c72cak",preco:276.76,link:""},
- {cor:"Rosé e preto",id:"S5b7f4f9423114de98e5400d3ad3012cdu",preco:276.56,link:""}
+ {cor:"Prata e branco",id:"S3ef531e12a4b4b848a10b911b6a1bae5V",preco:304.68,link:""},
+ {cor:"Prata e verde",id:"Sd4cce521fd2042cb90d037e93bff8d64Z",preco:306.71,link:""},
+ {cor:"Prata e azul",id:"S9509eedd58db4b068d55cca883fb934ej",preco:307.01,link:""},
+ {cor:"Prata e preto",id:"S35260cd5ed8147bab68f4ca72242caedL",preco:305.80,link:""},
+ {cor:"Dourado",id:"S4d4a90bd5fdc4e248891fbf7e7ef8d92D",preco:325.31,link:""},
+ {cor:"Rosé e verde",id:"S803a12a19b3042d8b5cbd27aa464205ff",preco:315.70,link:""},
+ {cor:"Rosé e azul",id:"S6a29efb2d784484ead9da1f6fca8a957T",preco:316.14,link:""},
+ {cor:"Rosé e branco",id:"S52b8d41de25840eba126490b8d8c72cak",preco:315.95,link:""},
+ {cor:"Rosé e preto",id:"S5b7f4f9423114de98e5400d3ad3012cdu",preco:315.70,link:""}
 ];
 const EXTRA=["S2487dc1d65a2483a87f2939e359803f7s","S5773b8410bcb48b9b5e5d14bc241987eB","S053fe28939c04e148fe14406538f4384V","Sac018ffc110d423faea99491f3410703b","S34e8219436384221939b3908be147743l"];
 const brl=v=>v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
