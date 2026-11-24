@@ -378,35 +378,35 @@ render();
 
 /* Classic 930: galeria e cores */
 {
-const CDN="https://ae-pic-a1.aliexpress-media.com/kf/", img=(id,sz)=>`${CDN}${id}.jpg_${sz}x${sz}q75.jpg`, fb=`onerror="this.onerror=null;this.src=this.src.replace(/_\\d+x\\d+q75\\.jpg$/,'')"`;
+const img=(f)=>f, fb="";
 // preco = preço normal na AliExpress + 25% de imposto estimado + R$ 120
 // link: cole aqui o link do carrinho da Nuvemshop de cada cor quando cadastrar o produto
 const CORES=[
- {cor:"Prata e branco",id:"S3ef531e12a4b4b848a10b911b6a1bae5V",preco:304.68,link:""},
- {cor:"Prata e verde",id:"Sd4cce521fd2042cb90d037e93bff8d64Z",preco:306.71,link:""},
- {cor:"Prata e azul",id:"S9509eedd58db4b068d55cca883fb934ej",preco:307.01,link:""},
- {cor:"Prata e preto",id:"S35260cd5ed8147bab68f4ca72242caedL",preco:305.80,link:""},
- {cor:"Dourado",id:"S4d4a90bd5fdc4e248891fbf7e7ef8d92D",preco:325.31,link:""},
- {cor:"Rosé e verde",id:"S803a12a19b3042d8b5cbd27aa464205ff",preco:315.70,link:""},
- {cor:"Rosé e azul",id:"S6a29efb2d784484ead9da1f6fca8a957T",preco:316.14,link:""},
- {cor:"Rosé e branco",id:"S52b8d41de25840eba126490b8d8c72cak",preco:315.95,link:""},
- {cor:"Rosé e preto",id:"S5b7f4f9423114de98e5400d3ad3012cdu",preco:315.70,link:""}
+ {cor:"Prata e branco",id:"930-prata-branco-detalhe.webp",preco:304.68,link:""},
+ {cor:"Prata e verde",id:"930-prata-verde-detalhe.webp",preco:306.71,link:""},
+ {cor:"Prata e azul",id:"930-prata-azul-detalhe.webp",preco:307.01,link:""},
+ {cor:"Prata e preto",id:"930-prata-preto-detalhe.webp",preco:305.80,link:""},
+ {cor:"Dourado",id:"930-dourado-detalhe.webp",preco:325.31,link:""},
+ {cor:"Rosé e verde",id:"930-rose-verde-detalhe.webp",preco:315.70,link:""},
+ {cor:"Rosé e azul",id:"930-rose-azul-detalhe.webp",preco:316.14,link:""},
+ {cor:"Rosé e branco",id:"930-rose-branco-detalhe.webp",preco:315.95,link:""},
+ {cor:"Rosé e preto",id:"930-rose-preto-detalhe.webp",preco:315.70,link:""}
 ];
-const EXTRA=["S2487dc1d65a2483a87f2939e359803f7s","S5773b8410bcb48b9b5e5d14bc241987eB","S053fe28939c04e148fe14406538f4384V","Sac018ffc110d423faea99491f3410703b","S34e8219436384221939b3908be147743l"];
+const EXTRA=["930-pulso-1.webp","930-pulso-2.webp"];
 const brl=v=>v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
 const g=id=>document.getElementById(id), T=g("gT"), TH=g("gTh");
 let c=0;
 function fotos(){return [CORES[c].id,...EXTRA];}
 function renderGal(){
   const f=fotos();
-  T.innerHTML=f.map((id,i)=>`<figure><img src="${img(id,960)}" ${fb} alt="Poedagar Classic 930 ${CORES[c].cor}, foto ${i+1}" loading="${i?"lazy":"eager"}"></figure>`).join("");
-  TH.innerHTML=f.map((id,i)=>`<button data-g="${i}" aria-current="${i===0}" aria-label="Foto ${i+1}"><img src="${img(id,220)}" ${fb} alt=""></button>`).join("");
+  T.innerHTML=f.map((id,i)=>`<figure><img src="${img(id)}" ${fb} alt="Poedagar Classic 930 ${CORES[c].cor}, foto ${i+1}" loading="${i?"lazy":"eager"}"></figure>`).join("");
+  TH.innerHTML=f.map((id,i)=>`<button data-g="${i}" aria-current="${i===0}" aria-label="Foto ${i+1}"><img src="${img(id)}" ${fb} alt=""></button>`).join("");
   T.scrollLeft=0;
 }
 function render(){
   const k=CORES[c];
   g("nPrice").textContent=brl(k.preco); g("nCor").textContent=k.cor;
-  g("nSw").innerHTML=CORES.map((q,i)=>`<button data-c="${i}" aria-pressed="${i===c}" aria-label="${q.cor}" title="${q.cor}"><img src="${img(q.id,220)}" ${fb} alt=""></button>`).join("");
+  g("nSw").innerHTML=CORES.map((q,i)=>`<button data-c="${i}" aria-pressed="${i===c}" aria-label="${q.cor}" title="${q.cor}"><img src="${img(q.id)}" ${fb} alt=""></button>`).join("");
   const wa=`https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent(`Olá, AUREN! Quero comprar o Poedagar Classic 930 — cor ${k.cor}.`)}`;
   g("nBuy").href=k.link||wa;
   renderGal();
