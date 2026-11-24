@@ -92,6 +92,35 @@ header{position:sticky;top:0;z-index:30;background:rgba(26,26,26,.82);-webkit-ba
 .bar i{position:absolute;left:0;top:0;height:100%;background:var(--ink);width:40%;transition:left .2s,width .2s}
 .arr{width:44px;height:44px;border-radius:50%;border:1px solid #cfcfcf;background:transparent;cursor:pointer;font-size:18px}
 .arr:hover{border-color:var(--ink)}
+/* coleção 930 */
+.n930{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:start}
+.gal{position:relative}
+.gtrack{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:6px;background:#fff}
+.gtrack::-webkit-scrollbar{display:none}
+.gtrack figure{flex:none;width:100%;margin:0;scroll-snap-align:start;aspect-ratio:1/1;min-width:0}
+.gtrack img{width:100%;height:100%;object-fit:cover}
+.garr{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.92);box-shadow:0 2px 10px rgba(0,0,0,.15);cursor:pointer;font-size:20px}
+.garr.p{left:12px}.garr.n{right:12px}
+.gthumbs{display:flex;gap:8px;margin-top:10px;overflow-x:auto;scrollbar-width:none}
+.gthumbs button{flex:none;width:68px;height:68px;padding:0;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:pointer;overflow:hidden}
+.gthumbs button[aria-current=true]{border:2px solid var(--ink)}
+.gthumbs img{width:100%;height:100%;object-fit:cover}
+.info{display:flex;flex-direction:column;gap:14px}
+.info .tagn{align-self:flex-start;background:var(--ink);color:var(--gold);font-size:13px;font-weight:700;padding:4px 10px;border-radius:3px}
+.info h2{font-size:clamp(28px,3.2vw,40px);font-weight:700}
+.info .price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.info .price strong{font-size:32px;color:#1d7f98;font-weight:700;white-space:nowrap}
+.info .price small{color:var(--mute);font-size:15px}
+.info .lbl{font-size:15px;color:var(--mute)}.info .lbl b{color:var(--ink);font-weight:600}
+.csw{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:8px;max-width:420px}
+.csw button{aspect-ratio:1/1;padding:0;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:pointer;overflow:hidden}
+.csw button[aria-pressed=true]{border:2px solid var(--ink)}
+.csw img{width:100%;height:100%;object-fit:cover}
+.specs{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 18px}
+.specs li{font-size:15px;color:#444;padding-left:18px;position:relative}
+.specs li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.info .btn{min-height:52px;font-size:17px;max-width:420px}
+@media(max-width:900px){.n930{grid-template-columns:minmax(0,1fr)}}
 /* banner promo */
 .promo{position:relative;overflow:hidden;background:radial-gradient(70% 90% at 70% 50%,#3d3428,#1f1b16 60%,#111);color:#fff}
 .promo .in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;min-height:min(64vh,520px);gap:24px}
@@ -166,7 +195,7 @@ footer .copy{border-top:1px solid #2a2a2a;margin-top:32px;padding-top:18px;font-
   <div class="wrap nav">
     <div class="left">
       <button class="icon mob" id="mBtn" aria-label="Abrir menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-      <a class="lnk" href="#vitrine">Relógios</a><a class="lnk" href="#black-gold">Black Gold</a><a class="lnk" href="#duvidas">Dúvidas</a>
+      <a class="lnk" href="#vitrine">Relógios</a><a class="lnk" href="#classic930">Classic 930</a><a class="lnk" href="#black-gold">Black Gold</a>
     </div>
     <a class="logo" href="#topo" aria-label="AUREN — início"><img src="logo.png" alt="AUREN"></a>
     <div class="right">
@@ -176,7 +205,7 @@ footer .copy{border-top:1px solid #2a2a2a;margin-top:32px;padding-top:18px;font-
     </div>
   </div>
   <nav class="menu" id="menu" aria-label="Menu">
-    <a href="#vitrine">Relógios</a><a href="#black-gold">Black Gold</a><a href="#sobre">Sobre a AUREN</a><a href="#duvidas">Dúvidas</a>
+    <a href="#vitrine">Relógios</a><a href="#classic930">Classic 930</a><a href="#black-gold">Black Gold</a><a href="#sobre">Sobre a AUREN</a><a href="#duvidas">Dúvidas</a>
   </nav>
 </header>
 
@@ -202,6 +231,27 @@ footer .copy{border-top:1px solid #2a2a2a;margin-top:32px;padding-top:18px;font-
     <div class="sh"><h2>Mais desejados</h2><a href="#black-gold">Ver destaque <b>›</b></a></div>
     <div class="rail" id="rail"></div>
     <div class="ctrl"><div class="bar"><i id="barI"></i></div><button class="arr" id="rPrev" aria-label="Anterior">‹</button><button class="arr" id="rNext" aria-label="Próximo">›</button></div>
+  </div>
+</section>
+
+
+<section class="sec" id="classic930">
+  <div class="wrap n930">
+    <div class="gal">
+      <div class="gtrack" id="gT" tabindex="0" aria-label="Fotos do relógio"></div>
+      <button class="garr p" id="gP" aria-label="Foto anterior">‹</button><button class="garr n" id="gN" aria-label="Próxima foto">›</button>
+      <div class="gthumbs" id="gTh"></div>
+    </div>
+    <div class="info">
+      <span class="tagn">Novidade</span>
+      <h2>Relógio Poedagar Classic 930</h2>
+      <div class="price"><strong id="nPrice">R$ 267,74</strong><small>à vista ou em até 12x no cartão</small></div>
+      <span class="lbl">Cor: <b id="nCor">Prata e branco</b></span>
+      <div class="csw" id="nSw"></div>
+      <ul class="specs"><li>Aço inoxidável</li><li>Máquina quartzo</li><li>Dia da semana e data</li><li>Ponteiros luminosos</li><li>Vidro hardlex</li><li>Resistente a respingos (3 ATM)</li></ul>
+      <a class="btn" id="nBuy" href="#" target="_blank" rel="noopener">Comprar</a>
+      <span class="lbl">Entrega em até 15 dias úteis para todo o Brasil.</span>
+    </div>
   </div>
 </section>
 
@@ -281,7 +331,7 @@ footer .copy{border-top:1px solid #2a2a2a;margin-top:32px;padding-top:18px;font-
   <div class="wrap">
     <div class="cols">
       <div><img src="logo.png" alt="AUREN"><p>Relógios Poedagar originais, selecionados e enviados com cuidado para todo o Brasil.</p></div>
-      <div><h4>Loja</h4><a href="#vitrine">Relógios</a><a href="#black-gold">Black Gold</a><a href="#sobre">Sobre a AUREN</a></div>
+      <div><h4>Loja</h4><a href="#vitrine">Relógios</a><a href="#classic930">Classic 930</a><a href="#black-gold">Black Gold</a><a href="#sobre">Sobre a AUREN</a></div>
       <div><h4>Atendimento</h4><a href="#duvidas">Dúvidas frequentes</a><a id="waFoot" href="#" target="_blank" rel="noopener">WhatsApp</a></div>
     </div>
     <div class="copy">© 2026 AUREN Relógios · Cuiabá, MT · Todos os direitos reservados.</div>
@@ -324,6 +374,52 @@ const step=()=>{const c=rail.querySelector(".pc");return c?c.getBoundingClientRe
 $("#rPrev").addEventListener("click",()=>rail.scrollBy({left:-step(),behavior:"smooth"}));
 $("#rNext").addEventListener("click",()=>rail.scrollBy({left:step(),behavior:"smooth"}));
 render();
+
+
+/* Classic 930: galeria e cores */
+{
+const CDN="https://ae-pic-a1.aliexpress-media.com/kf/", img=(id,sz)=>`${CDN}${id}.jpg_${sz}x${sz}q90.jpg`;
+// link: cole aqui o link do carrinho da Nuvemshop de cada cor quando cadastrar o produto
+const CORES=[
+ {cor:"Prata e branco",id:"S3ef531e12a4b4b848a10b911b6a1bae5V",preco:267.74,link:""},
+ {cor:"Prata e verde",id:"Sd4cce521fd2042cb90d037e93bff8d64Z",preco:269.37,link:""},
+ {cor:"Prata e azul",id:"S9509eedd58db4b068d55cca883fb934ej",preco:269.61,link:""},
+ {cor:"Prata e preto",id:"S35260cd5ed8147bab68f4ca72242caedL",preco:268.64,link:""},
+ {cor:"Dourado",id:"S4d4a90bd5fdc4e248891fbf7e7ef8d92D",preco:284.25,link:""},
+ {cor:"Rosé e verde",id:"S803a12a19b3042d8b5cbd27aa464205ff",preco:276.56,link:""},
+ {cor:"Rosé e azul",id:"S6a29efb2d784484ead9da1f6fca8a957T",preco:276.91,link:""},
+ {cor:"Rosé e branco",id:"S52b8d41de25840eba126490b8d8c72cak",preco:276.76,link:""},
+ {cor:"Rosé e preto",id:"S5b7f4f9423114de98e5400d3ad3012cdu",preco:276.56,link:""}
+];
+const EXTRA=["S2487dc1d65a2483a87f2939e359803f7s","S5773b8410bcb48b9b5e5d14bc241987eB","S053fe28939c04e148fe14406538f4384V","Sac018ffc110d423faea99491f3410703b","S34e8219436384221939b3908be147743l"];
+const brl=v=>v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+const g=id=>document.getElementById(id), T=g("gT"), TH=g("gTh");
+let c=0;
+function fotos(){return [CORES[c].id,...EXTRA];}
+function renderGal(){
+  const f=fotos();
+  T.innerHTML=f.map((id,i)=>`<figure><img src="${img(id,800)}" alt="Poedagar Classic 930 ${CORES[c].cor}, foto ${i+1}" loading="${i?"lazy":"eager"}"></figure>`).join("");
+  TH.innerHTML=f.map((id,i)=>`<button data-g="${i}" aria-current="${i===0}" aria-label="Foto ${i+1}"><img src="${img(id,220)}" alt=""></button>`).join("");
+  T.scrollLeft=0;
+}
+function render(){
+  const k=CORES[c];
+  g("nPrice").textContent=brl(k.preco); g("nCor").textContent=k.cor;
+  g("nSw").innerHTML=CORES.map((q,i)=>`<button data-c="${i}" aria-pressed="${i===c}" aria-label="${q.cor}" title="${q.cor}"><img src="${img(q.id,220)}" alt=""></button>`).join("");
+  const wa=`https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent(`Olá, AUREN! Quero comprar o Poedagar Classic 930 — cor ${k.cor}.`)}`;
+  g("nBuy").href=k.link||wa;
+  renderGal();
+}
+g("nSw").addEventListener("click",e=>{const b=e.target.closest("[data-c]");if(b){c=+b.dataset.c;render();}});
+const go=i=>{const w=T.clientWidth;T.scrollTo({left:i*w,behavior:"smooth"});};
+const cur=()=>Math.round(T.scrollLeft/Math.max(1,T.clientWidth));
+TH.addEventListener("click",e=>{const b=e.target.closest("[data-g]");if(b)go(+b.dataset.g);});
+g("gP").addEventListener("click",()=>go(Math.max(0,cur()-1)));
+g("gN").addEventListener("click",()=>go(Math.min(fotos().length-1,cur()+1)));
+T.addEventListener("keydown",e=>{if(e.key==="ArrowRight"){e.preventDefault();go(Math.min(fotos().length-1,cur()+1));}if(e.key==="ArrowLeft"){e.preventDefault();go(Math.max(0,cur()-1));}});
+T.addEventListener("scroll",()=>{const i=cur();TH.querySelectorAll("button").forEach((b,k)=>b.setAttribute("aria-current",k===i));},{passive:true});
+render();
+}
 
 /* menu no celular */
 const mb=$("#mBtn"), mn=$("#menu");
