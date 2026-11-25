@@ -396,15 +396,15 @@ const img=(f)=>f, fb="";
 // preço único: R$ 198,00 em todas as cores
 // link: cole aqui o link do carrinho da Nuvemshop de cada cor quando cadastrar o produto
 const CORES=[
- {cor:"Prata e branco",id:"930-prata-branco-detalhe.webp",preco:198.00,link:""},
- {cor:"Prata e verde",id:"930-prata-verde-detalhe.webp",preco:198.00,link:""},
- {cor:"Prata e azul",id:"930-prata-azul-detalhe.webp",preco:198.00,link:""},
- {cor:"Prata e preto",id:"930-prata-preto-detalhe.webp",preco:198.00,link:""},
- {cor:"Dourado",id:"930-dourado-detalhe.webp",preco:198.00,link:""},
- {cor:"Rosé e verde",id:"930-rose-verde-detalhe.webp",preco:198.00,link:""},
- {cor:"Rosé e azul",id:"930-rose-azul-detalhe.webp",preco:198.00,link:""},
- {cor:"Rosé e branco",id:"930-rose-branco-detalhe.webp",preco:198.00,link:""},
- {cor:"Rosé e preto",id:"930-rose-preto-detalhe.webp",preco:198.00,link:""}
+ {cor:"Prata e branco",id:"930-prata-branco-detalhe.webp",preco:198.00,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1646496446-1"},
+ {cor:"Prata e verde",id:"930-prata-verde-detalhe.webp",preco:198.00,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1646496439-1"},
+ {cor:"Prata e azul",id:"930-prata-azul-detalhe.webp",preco:198.00,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1646496445-1"},
+ {cor:"Prata e preto",id:"930-prata-preto-detalhe.webp",preco:198.00,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1646496447-1"},
+ {cor:"Dourado",id:"930-dourado-detalhe.webp",preco:198.00,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1646496444-1"},
+ {cor:"Rosé e verde",id:"930-rose-verde-detalhe.webp",preco:198.00,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1646496440-1"},
+ {cor:"Rosé e azul",id:"930-rose-azul-detalhe.webp",preco:198.00,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1646496441-1"},
+ {cor:"Rosé e branco",id:"930-rose-branco-detalhe.webp",preco:198.00,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1646496442-1"},
+ {cor:"Rosé e preto",id:"930-rose-preto-detalhe.webp",preco:198.00,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1646496443-1"}
 ];
 const EXTRA=["930-pulso-1.webp","930-pulso-2.webp"];
 const brl=v=>v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
@@ -422,7 +422,7 @@ function render(){
   g("nPrice").textContent=brl(k.preco); g("nCor").textContent=k.cor;
   g("nSw").innerHTML=CORES.map((q,i)=>`<button data-c="${i}" aria-pressed="${i===c}" aria-label="${q.cor}" title="${q.cor}"><img src="${img(q.id)}" ${fb} alt=""></button>`).join("");
   const wa=`https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent(`Olá, AUREN! Quero comprar o Poedagar Classic 930 — cor ${k.cor}.`)}`;
-  g("nBuy").href=k.link||wa;
+  g("nBuy").href=k.link||wa; if(k.link){g("nBuy").removeAttribute("target");}
   renderGal();
 }
 g("nSw").addEventListener("click",e=>{const b=e.target.closest("[data-c]");if(b){c=+b.dataset.c;render();}});
