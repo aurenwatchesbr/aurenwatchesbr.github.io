@@ -246,7 +246,9 @@ footer .copy{border-top:1px solid #2a2a2a;margin-top:32px;padding-top:18px;font-
     <div class="info">
       <span class="tagn">Novidade</span>
       <h2>Relógio Poedagar Classic 930</h2>
-      <div class="price"><strong id="nPrice">R$ 304,68</strong><small>à vista ou em até 12x no cartão</small></div>
+      <div class="price"><strong id="nPrice">R$ 198,00</strong><small>à vista</small></div>
+      <div class="lbl" style="margin-top:-8px">ou 12x de <b style="color:var(--ink)">R$ 20,37</b></div>
+      <div class="lbl" style="margin-top:-8px">ou 12x de <b style="color:var(--ink)">R$ 20,37</b></div>
       <span class="lbl">Cor: <b id="nCor">Prata e branco</b></span>
       <div class="csw" id="nSw"></div>
       <ul class="specs"><li>Aço inoxidável</li><li>Máquina quartzo</li><li>Dia da semana e data</li><li>Ponteiros luminosos</li><li>Vidro hardlex</li><li>Resistente a respingos (3 ATM)</li></ul>
@@ -391,18 +393,18 @@ render();
 /* Classic 930: galeria e cores */
 {
 const img=(f)=>f, fb="";
-// preco = preço normal na AliExpress + 25% de imposto estimado + R$ 120
+// preço único: R$ 198,00 em todas as cores
 // link: cole aqui o link do carrinho da Nuvemshop de cada cor quando cadastrar o produto
 const CORES=[
- {cor:"Prata e branco",id:"930-prata-branco-detalhe.webp",preco:304.68,link:""},
- {cor:"Prata e verde",id:"930-prata-verde-detalhe.webp",preco:306.71,link:""},
- {cor:"Prata e azul",id:"930-prata-azul-detalhe.webp",preco:307.01,link:""},
- {cor:"Prata e preto",id:"930-prata-preto-detalhe.webp",preco:305.80,link:""},
- {cor:"Dourado",id:"930-dourado-detalhe.webp",preco:325.31,link:""},
- {cor:"Rosé e verde",id:"930-rose-verde-detalhe.webp",preco:315.70,link:""},
- {cor:"Rosé e azul",id:"930-rose-azul-detalhe.webp",preco:316.14,link:""},
- {cor:"Rosé e branco",id:"930-rose-branco-detalhe.webp",preco:315.95,link:""},
- {cor:"Rosé e preto",id:"930-rose-preto-detalhe.webp",preco:315.70,link:""}
+ {cor:"Prata e branco",id:"930-prata-branco-detalhe.webp",preco:198.00,link:""},
+ {cor:"Prata e verde",id:"930-prata-verde-detalhe.webp",preco:198.00,link:""},
+ {cor:"Prata e azul",id:"930-prata-azul-detalhe.webp",preco:198.00,link:""},
+ {cor:"Prata e preto",id:"930-prata-preto-detalhe.webp",preco:198.00,link:""},
+ {cor:"Dourado",id:"930-dourado-detalhe.webp",preco:198.00,link:""},
+ {cor:"Rosé e verde",id:"930-rose-verde-detalhe.webp",preco:198.00,link:""},
+ {cor:"Rosé e azul",id:"930-rose-azul-detalhe.webp",preco:198.00,link:""},
+ {cor:"Rosé e branco",id:"930-rose-branco-detalhe.webp",preco:198.00,link:""},
+ {cor:"Rosé e preto",id:"930-rose-preto-detalhe.webp",preco:198.00,link:""}
 ];
 const EXTRA=["930-pulso-1.webp","930-pulso-2.webp"];
 const brl=v=>v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
