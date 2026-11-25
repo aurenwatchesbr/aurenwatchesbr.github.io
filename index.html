@@ -74,6 +74,7 @@ header{position:sticky;top:0;z-index:30;background:rgba(26,26,26,.82);-webkit-ba
 .pc:hover .ph img{transform:scale(1.07)}
 .badge{position:absolute;top:12px;left:12px;background:#1d7f98;color:#fff;font-size:13px;font-weight:600;padding:3px 9px;border-radius:3px}
 .badge.gold{background:var(--ink);color:var(--gold)}
+.badge.new{background:var(--gold);color:#17120a}
 .pc .bd{padding:16px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
 .pc h3{font-size:17px;font-weight:600}
 .pc .pr{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
@@ -81,8 +82,8 @@ header{position:sticky;top:0;z-index:30;background:rgba(26,26,26,.82);-webkit-ba
 .pc .pr small{color:var(--mute);font-size:14px}
 .pc .inst{color:var(--ink);font-size:15px;margin-top:-4px}.pc .inst b{font-weight:600}
 .chip{align-self:flex-start;background:#111;color:var(--gold);font-size:12.5px;font-weight:700;padding:3px 8px;border-radius:3px}
-.sw{display:flex;gap:8px;margin-top:4px}
-.sw button{width:46px;height:46px;border:1px solid var(--line);border-radius:4px;background:#fff;padding:3px;cursor:pointer}
+.sw{display:flex;gap:6px;margin-top:4px;flex-wrap:wrap}
+.sw button{width:44px;height:44px;border:1px solid var(--line);border-radius:4px;background:#fff;padding:3px;cursor:pointer}
 .sw button[aria-pressed=true]{border:2px solid var(--ink)}
 .sw img{width:100%;height:100%;object-fit:contain}
 .pc .btn{margin-top:auto;width:100%;min-height:46px}
@@ -342,11 +343,22 @@ footer .copy{border-top:1px solid #2a2a2a;margin-top:32px;padding-top:18px;font-
 {
 const LOJA={whatsapp:"5565999999999"};
 const P=[
-  {id:"gold",cor:"Black Gold",foto:"preto-dourado.webp",link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1645416499-1",badge:"Destaque"},
-  {id:"noir",cor:"Prata e Preto",foto:"prata-preto.webp",link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1645416498-1",badge:""},
-  {id:"blue",cor:"Prata e Azul",foto:"prata-azul.webp",link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1645416500-1",badge:""},
-  {id:"white",cor:"Prata e Branco",foto:"prata-branco.webp",link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1645416501-1",badge:""}
+  // grp: "steel" = R$ 167,90 · "gold" = pulseira e detalhes dourados, R$ 198,00
+  // link: link do carrinho da Nuvemshop de cada cor ("" = abre o WhatsApp)
+  {id:"gold",cor:"Black Gold",foto:"preto-dourado.webp",grp:"steel",preco:167.90,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1645416499-1",badge:"Destaque"},
+  {id:"noir",cor:"Prata e Preto",foto:"prata-preto.webp",grp:"steel",preco:167.90,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1645416498-1",badge:""},
+  {id:"blue",cor:"Prata e Azul",foto:"prata-azul.webp",grp:"steel",preco:167.90,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1645416500-1",badge:""},
+  {id:"white",cor:"Prata e Branco",foto:"prata-branco.webp",grp:"steel",preco:167.90,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1645416501-1",badge:""},
+  {id:"grey",cor:"Prata e Cinza",foto:"octagon-prata-cinza.webp",grp:"steel",preco:167.90,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1646486693-1",badge:"Novo"},
+  {id:"g-gold",cor:"Dourado",foto:"octagon-dourado.webp",grp:"gold",preco:198.00,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1646486694-1",badge:"Novo"},
+  {id:"g-black",cor:"Dourado e Preto",foto:"octagon-dourado-preto.webp",grp:"gold",preco:198.00,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1646486695-1",badge:"Novo"},
+  {id:"g-white",cor:"Dourado e Branco",foto:"octagon-dourado-branco.webp",grp:"gold",preco:198.00,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1646486696-1",badge:"Novo"},
+  {id:"g-green",cor:"Dourado e Verde",foto:"octagon-dourado-verde.webp",grp:"gold",preco:198.00,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1646486697-1",badge:"Novo"},
+  {id:"g-blue",cor:"Dourado e Azul",foto:"octagon-dourado-azul.webp",grp:"gold",preco:198.00,link:"https://aurenwatches.lojavirtualnuvem.com.br/cart-link/1646486698-1",badge:"Novo"}
 ];
+const PARC=17.27/167.90;   // mesma taxa do parcelamento do cartão (12x)
+const brl=v=>v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+const buy=p=>p.link||`https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent(`Olá, AUREN! Quero comprar o Poedagar Octagon — cor ${p.cor}.`)}`;
 const $=s=>document.querySelector(s);
 const wa=`https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent("Olá, AUREN! Vim pelo site e quero saber mais sobre os relógios.")}`;
 $("#waTop").href=wa; $("#waFoot").href=wa;
@@ -357,13 +369,13 @@ const sel=P.map(p=>p.id);
 function card(i){
   const p=P.find(x=>x.id===sel[i]);
   return `<article class="pc" data-i="${i}">
-    <div class="ph">${P[i].badge?`<span class="badge gold">${P[i].badge}</span>`:""}<img src="${p.foto}" alt="Relógio Poedagar Octagon ${p.cor}"></div>
+    <div class="ph">${P[i].badge?`<span class="badge ${P[i].badge==="Novo"?"new":"gold"}">${P[i].badge}</span>`:""}<img src="${p.foto}" alt="Relógio Poedagar Octagon ${p.cor}"></div>
     <div class="bd"><h3>Relógio Poedagar Octagon — ${p.cor}</h3>
-      <div class="pr"><strong>R$ 167,90</strong><small>à vista</small></div><div class="inst">ou 12x de <b>R$ 17,27</b></div>
+      <div class="pr"><strong>${brl(p.preco)}</strong><small>à vista</small></div><div class="inst">ou 12x de <b>${brl(p.preco*PARC)}</b></div>
       <span class="chip">Entrega em até 15 dias úteis</span>
-      <div class="sw">${P.map(q=>`<button data-c="${q.id}" aria-pressed="${q.id===p.id}" aria-label="${q.cor}" title="${q.cor}"><img src="${q.foto}" alt=""></button>`).join("")}</div>
+      <div class="sw">${P.filter(q=>q.grp===p.grp).map(q=>`<button data-c="${q.id}" aria-pressed="${q.id===p.id}" aria-label="${q.cor}" title="${q.cor}"><img src="${q.foto}" alt=""></button>`).join("")}</div>
       <div class="gap"></div>
-      <a class="btn" href="${p.link}">Comprar</a></div></article>`;
+      <a class="btn" href="${buy(p)}" ${p.link?"":`target="_blank" rel="noopener"`}>Comprar</a></div></article>`;
 }
 const rail=$("#rail");
 const render=()=>{rail.innerHTML=P.map((_,i)=>card(i)).join("");bar();};
